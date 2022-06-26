@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TetrisWPF
 {
-    internal class GameGrid
+    public class GameGrid
     {
         private readonly int[,] grid;
         public int Rows { get; }
