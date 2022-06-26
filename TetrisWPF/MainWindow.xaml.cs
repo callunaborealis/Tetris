@@ -138,7 +138,7 @@ namespace TetrisWPF
             DrawBlock(gameState.CurrentBlock);
             DrawNextBlock(gameState.BlockQueue);
             DrawHeldBlock(gameState.HeldBlock);
-            ScoreText.Text = $"Score: {gameState.Score}";
+            ScoreNumber.Text = $"{gameState.Score}";
         }
 
         private async Task StartGame()
