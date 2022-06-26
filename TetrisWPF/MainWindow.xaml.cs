@@ -85,16 +85,29 @@ namespace TetrisWPF
                 for (int col = 0; col < gameGrid.Cols; col++)
                 {
                     int id = gameGrid[row, col];
+                    // Ensure that the ghost blocks are renderd over the actual blocks
+                    imageControls[row, col].Opacity = 1;
                     imageControls[row, col].Source = tileImages[id];
                 }
             }
         }
 
+        private void DrawGhostBlock(Block block)
+        {
+            int dropHeight = gameState.GetDropHeightOfCurrentBlock();
+            foreach (Position position in block.TilePositions())
+            {
+                imageControls[position.Row + dropHeight, position.Col].Opacity = 0.25;
+                imageControls[position.Row + dropHeight, position.Col].Source = tileImages[block.Id];
+            }
+        }
+
         private void DrawBlock(Block block)
         {
-            foreach(Position p in block.TilePositions())
+            foreach(Position position in block.TilePositions())
             {
-                imageControls[p.Row, p.Col].Source = tileImages[block.Id];
+                imageControls[position.Row, position.Col].Opacity = 1;
+                imageControls[position.Row, position.Col].Source = tileImages[block.Id];
             }
         }
 
@@ -116,9 +129,12 @@ namespace TetrisWPF
             }
         }
 
+
+
         private void Draw(GameState gameState)
         {
             DrawGrid(gameState.GameGrid);
+            DrawGhostBlock(gameState.CurrentBlock);
             DrawBlock(gameState.CurrentBlock);
             DrawNextBlock(gameState.BlockQueue);
             DrawHeldBlock(gameState.HeldBlock);
