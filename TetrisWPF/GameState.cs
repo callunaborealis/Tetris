@@ -33,6 +33,8 @@ namespace TetrisWPF
 
         public bool GameOver { get; private set; }
 
+        public int Score { get; private set; }
+
         public GameState()
         {
             GameGrid = new(22, 10);
@@ -104,7 +106,7 @@ namespace TetrisWPF
                 GameGrid[position.Row, position.Col] = CurrentBlock.Id;
             }
 
-            GameGrid.ClearFullRows();
+            Score += GameGrid.ClearFullRows();
 
             if (IsGameOver())
             {
