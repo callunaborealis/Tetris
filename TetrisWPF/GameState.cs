@@ -23,7 +23,7 @@ namespace TetrisWPF
         {
             GameGrid = new(22, 10);
             BlockQueue = new();
-            CurrentBlock = BlockQueue.GetAndUpdate();
+            currentBlock = BlockQueue.GetAndUpdate();
         }
 
         private bool BlockFits()

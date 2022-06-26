@@ -7,4 +7,44 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Background.png" />
+    <None Remove="Assets\EmptyBlock.png" />
+    <None Remove="Assets\IShapedBlock.png" />
+    <None Remove="Assets\JShapedBlock.png" />
+    <None Remove="Assets\LShapedBlock.png" />
+    <None Remove="Assets\SquareBlock.png" />
+    <None Remove="Assets\SShapedBlock.png" />
+    <None Remove="Assets\TileBlue.png" />
+    <None Remove="Assets\TileCyan.png" />
+    <None Remove="Assets\TileEmpty.png" />
+    <None Remove="Assets\TileGreen.png" />
+    <None Remove="Assets\TileOrange.png" />
+    <None Remove="Assets\TilePurple.png" />
+    <None Remove="Assets\TileRed.png" />
+    <None Remove="Assets\TileYellow.png" />
+    <None Remove="Assets\TShapedBlock.png" />
+    <None Remove="Assets\ZShapedBlock.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Background.png" />
+    <Resource Include="Assets\EmptyBlock.png" />
+    <Resource Include="Assets\IShapedBlock.png" />
+    <Resource Include="Assets\JShapedBlock.png" />
+    <Resource Include="Assets\LShapedBlock.png" />
+    <Resource Include="Assets\SquareBlock.png" />
+    <Resource Include="Assets\SShapedBlock.png" />
+    <Resource Include="Assets\TileBlue.png" />
+    <Resource Include="Assets\TileCyan.png" />
+    <Resource Include="Assets\TileEmpty.png" />
+    <Resource Include="Assets\TileGreen.png" />
+    <Resource Include="Assets\TileOrange.png" />
+    <Resource Include="Assets\TilePurple.png" />
+    <Resource Include="Assets\TileRed.png" />
+    <Resource Include="Assets\TileYellow.png" />
+    <Resource Include="Assets\TShapedBlock.png" />
+    <Resource Include="Assets\ZShapedBlock.png" />
+  </ItemGroup>
+
 </Project>
