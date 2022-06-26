@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TetrisWPF", "TetrisWPF\TetrisWPF.csproj", "{6C0CB31F-E04B-4E1B-8267-097C9B4E3904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisWPF", "TetrisWPF\TetrisWPF.csproj", "{6C0CB31F-E04B-4E1B-8267-097C9B4E3904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
