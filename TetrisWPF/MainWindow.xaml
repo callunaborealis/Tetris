@@ -64,11 +64,12 @@
                            Text="Score: "
                            FontSize="36"
                            TextAlignment="Center" />
-                <Button Content="Play Again"
+                <Button x:Name="PlayAgainButton"
+                        Content="Play Again"
                         Background="LightGreen"
                         Margin="0,20,0,0"
                         Padding="5"
-                        Click="Button_Click" />
+                        Click="PlayAgainButton_Click" />
             </StackPanel>
         </Grid>
     </Grid>

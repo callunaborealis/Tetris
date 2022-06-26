@@ -46,7 +46,7 @@ namespace TetrisWPF
 
         private readonly Image[,] imageControls;
 
-        private readonly GameState gameState = new();
+        private GameState gameState = new();
 
         public MainWindow()
         {
@@ -104,7 +104,7 @@ namespace TetrisWPF
             DrawBlock(gameState.CurrentBlock);
         }
 
-        private async Task GameLoop()
+        private async Task StartGame()
         {
             Draw(gameState);
             while (!gameState.GameOver)
@@ -113,6 +113,8 @@ namespace TetrisWPF
                 gameState.MoveBlockDown();
                 Draw(gameState);
             }
+
+            GameOverMenu.Visibility = Visibility.Visible;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -149,11 +151,14 @@ namespace TetrisWPF
 
         private async void GameCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-           await GameLoop();
+           await StartGame();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void PlayAgainButton_Click(object sender, RoutedEventArgs e)
         {
+            gameState = new();
+            GameOverMenu.Visibility = Visibility.Hidden;
+            await StartGame();
 
         }
     }
