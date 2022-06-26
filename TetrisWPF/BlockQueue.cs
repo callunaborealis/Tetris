@@ -22,14 +22,14 @@ namespace TetrisWPF
 
         public Block NextBlock { get; private set; }
 
-        private Block GetRandomBlock()
+        private Block RandomBlock()
         {
             return blocks[random.Next(blocks.Length)];
         }
 
         public BlockQueue()
         {
-            NextBlock = GetRandomBlock();
+            NextBlock = RandomBlock();
         }
 
         public Block GetAndUpdate()
@@ -37,9 +37,9 @@ namespace TetrisWPF
             Block block = NextBlock;
             do
             {
-                NextBlock = GetRandomBlock();
+                NextBlock = RandomBlock();
             }
-            while (block.Id != NextBlock.Id);
+            while (block.Id == NextBlock.Id);
 
             return block;
         }
