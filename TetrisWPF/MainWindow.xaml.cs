@@ -69,7 +69,7 @@ namespace TetrisWPF
                     };
 
                     // Hide 2 top spawning rows so they are not inside the canvas
-                    Canvas.SetTop(imageControl, (row - 2) * cellSize);
+                    Canvas.SetTop(imageControl, (row - 2) * cellSize + 10);
                     Canvas.SetLeft(imageControl, col * cellSize);
                     GameCanvas.Children.Add(imageControl);
                     imageControls[row, col] = imageControl;
@@ -98,10 +98,17 @@ namespace TetrisWPF
             }
         }
 
+        private void DrawNextBlock(BlockQueue blockQueue)
+        {
+            Block nextBlock = blockQueue.NextBlock;
+            NextImage.Source = blockImages[nextBlock.Id];
+        }
+
         private void Draw(GameState gameState)
         {
             DrawGrid(gameState.GameGrid);
             DrawBlock(gameState.CurrentBlock);
+            DrawNextBlock(gameState.BlockQueue);
         }
 
         private async Task StartGame()
