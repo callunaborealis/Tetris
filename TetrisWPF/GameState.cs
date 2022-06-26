@@ -157,5 +157,33 @@ namespace TetrisWPF
             }
         }
 
+        private int GetTotalDropHeight(Position position)
+        {
+            int dropHeight = 0;
+
+            while (GameGrid.IsCellEmpty(position.Row + dropHeight + 1, position.Col))
+            {
+                dropHeight += 1;
+            }
+
+            return dropHeight;
+        }
+
+        public int GetDropHeightOfCurrentBlock()
+        {
+            int dropHeight = GameGrid.Rows;
+            foreach (Position position in CurrentBlock.TilePositions())
+            {
+                dropHeight = Math.Min(dropHeight, GetTotalDropHeight(position));
+            }
+            return dropHeight;
+        }
+
+        public void FastForwardCurrentBlockDrop()
+        {
+            CurrentBlock.Move(GetDropHeightOfCurrentBlock(), 0);
+            PlaceBlock();
+        }
+
     }
 }
