@@ -35,11 +35,15 @@ namespace TetrisWPF
 
         public int Score { get; private set; }
 
+        public Block HeldBlock { get; private set; }
+        public bool CanHold { get; private set; }
+
         public GameState()
         {
             GameGrid = new(22, 10);
             BlockQueue = new();
             currentBlock = BlockQueue.GetAndUpdate();
+            CanHold = true;
         }
 
         private bool BlockFits()
@@ -52,6 +56,29 @@ namespace TetrisWPF
                 }
             }
             return true;
+        }
+
+        public void HoldBlock()
+        {
+            if (!CanHold)
+            {
+                return;
+            }
+
+            if (HeldBlock == null)
+            {
+                HeldBlock = currentBlock;
+                CurrentBlock = BlockQueue.GetAndUpdate();
+            } else
+            {
+                Block tmp = CurrentBlock;
+                CurrentBlock = HeldBlock;
+                HeldBlock = tmp;
+            }
+
+            CanHold = false;
+
+    
         }
 
         public void RotateBlockClockwise()
@@ -115,6 +142,7 @@ namespace TetrisWPF
             else
             {
                 CurrentBlock = BlockQueue.GetAndUpdate();
+                CanHold = true;
             }
         }
 
